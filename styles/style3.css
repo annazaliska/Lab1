@@ -1,0 +1,232 @@
+:root {
+    --primary-color: #22382e;
+    --header-color: #1a2e25;
+    --bg-color: #f7f4ee;
+    --card-bg: #ffffff;
+    --accent-peach: #e3b5a4;
+    --text-main: #22382e;
+    --text-muted: #666666;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+header {
+    background-color: var(--header-color);
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #a3b8b0;
+    text-transform: uppercase;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+header nav a, header div a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: opacity var(--transition);
+}
+
+header nav a:hover, header div a:hover {
+    opacity: 0.7;
+}
+
+header div:last-child a {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Заголовок сторінки Occasions */
+main > section:first-of-type {
+    padding: 4rem 4rem 2rem 4rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+main > section:first-of-type h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+main > section:first-of-type p {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* Сітка карток подій */
+main > section:nth-of-type(2) {
+    padding: 2rem 4rem 5rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+main > section:nth-of-type(2) > div {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    position: relative;
+}
+
+/* Зображення з накладеним текстом */
+main > section:nth-of-type(2) > div > img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    filter: brightness(0.9);
+}
+
+main > section:nth-of-type(2) h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+}
+
+main > section:nth-of-type(2) > div > p:first-of-type {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* Секція "Includes:" та списки складових у вигляді тегів */
+main > section:nth-of-type(2) > div > p:nth-of-type(2) {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+main > section:nth-of-type(2) ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+main > section:nth-of-type(2) ul li {
+    background-color: #e5edea;
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 15px;
+    font-weight: 500;
+}
+
+/* Ціна та кнопка */
+main > section:nth-of-type(2) > div > p:last-of-type {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+main > section:nth-of-type(2) button {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 0.7rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: opacity var(--transition);
+}
+
+main > section:nth-of-type(2) button:hover {
+    opacity: 0.9;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 4rem;
+    text-align: center;
+}
+
+footer h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+footer p {
+    color: #a3b8b0;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+footer ul a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: opacity var(--transition);
+}
+
+footer ul a:hover {
+    opacity: 0.7;
+}

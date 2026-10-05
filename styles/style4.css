@@ -1,0 +1,299 @@
+:root {
+    --primary-color: #22382e;
+    --header-color: #1a2e25;
+    --bg-color: #f7f4ee;
+    --card-bg: #ffffff;
+    --accent-peach: #e3b5a4;
+    --text-main: #22382e;
+    --text-muted: #666666;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+header {
+    background-color: var(--header-color);
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #a3b8b0;
+    text-transform: uppercase;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+header nav a, header div a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: opacity var(--transition);
+}
+
+header nav a:hover, header div a:hover {
+    opacity: 0.7;
+}
+
+header div:last-child a {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+main > section:first-of-type {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5rem 4rem;
+    gap: 3rem;
+}
+
+main > section:first-of-type > div:first-child {
+    max-width: 60%;
+}
+
+main > section:first-of-type img {
+    width: 550px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+main > section:first-of-type h2 {
+    font-family: var(--font-heading);
+    font-size: 3.2rem;
+    line-height: 1.15;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+main > section:first-of-type h2 span {
+    font-style: italic;
+    color: var(--accent-peach);
+}
+
+main > section:first-of-type p:not(:first-child) {
+    font-size: 0.95rem;
+    color: #c5d3cd;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+main > section:first-of-type img {
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Друга секція (What We Stand For) */
+main > section:nth-of-type(2) {
+    padding: 5rem 4rem;
+    background-color: var(--bg-color);
+}
+
+main > section:nth-of-type(2) > h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+
+main > section:nth-of-type(2) > div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+main > section:nth-of-type(2) > div > div {
+    background-color: var(--card-bg);
+    padding: 2.5rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+main > section:nth-of-type(2) span {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+main > section:nth-of-type(2) h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+main > section:nth-of-type(2) p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Третя секція (Meet the Team) — робимо темнішою */
+main > section:nth-of-type(3) {
+    padding: 5rem 4rem;
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+main > section:nth-of-type(3) > h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+main > section:nth-of-type(3) > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+main > section:nth-of-type(3) > div > div {
+    text-align: center;
+}
+
+main > section:nth-of-type(3) img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.2rem;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+main > section:nth-of-type(3) h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin-bottom: 0.3rem;
+    color: #ffffff;
+}
+
+main > section:nth-of-type(3) p {
+    font-size: 0.85rem;
+    color: #c5d3cd;
+}
+
+main > section:nth-of-type(4) {
+    padding: 5rem 4rem;
+    text-align: center;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+main > section:nth-of-type(4) h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+main > section:nth-of-type(4) p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+main > section:nth-of-type(4) button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.9rem 2.2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: opacity var(--transition);
+}
+
+main > section:nth-of-type(4) button:hover {
+    opacity: 0.9;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 4rem;
+    text-align: center;
+}
+
+footer h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+footer p {
+    color: #a3b8b0;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+footer ul a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: opacity var(--transition);
+}
+
+footer ul a:hover {
+    opacity: 0.7;
+}
