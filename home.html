@@ -10,18 +10,32 @@
 </head>
 <body>
 
-    <header>
+    <header id="top">
         <div>
             <h1>La Fleur</h1>
             <p>BOTANICAL STUDIO</p>
         </div>
         <nav>
             <ul>
-                <li><a href="shop.html">Shop</a></li>
+                <li class="dropdown">
+                    <a href="shop.html">Shop ▾</a>
+                    <ul class="submenu">
+                        <li><a href="shop.html">Bestsellers</a></li>
+                        <li><a href="shop.html">Seasonal</a></li>
+                        <li><a href="shop.html">New Arrivals</a></li>
+                    </ul>
+                </li>
                 <li><a href="occasions.html">Occasions</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
+        
+        <!-- Пункт 4: Елемент пошуку -->
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <button type="submit">🔍</button>
+        </div>
+
         <div>
             <a href="basket.html">Cart</a>
         </div>
@@ -114,10 +128,17 @@
             </div>
         </section>
 
-        <section>
+        <!-- Пункт 3: Ефект зображення з текстом по середині -->
+        <section class="image-overlay-section">
             <img src="img/img6.jpg" alt="Flower shop interior" width="800" height="400">
-            <h2>Find the perfect arrangement</h2>
-            <a href="occasions.html"><button>Shop by Occasion</button></a>
+            <div class="overlay-content">
+                <h2>HOME DECORATION</h2>
+                <p>Discover our exclusive interior botanical selections</p>
+            </div>
+            <div class="bottom-action">
+                <h2>Find the perfect arrangement</h2>
+                <a href="occasions.html"><button>Shop by Occasion</button></a>
+            </div>
         </section>
     </main>
 
@@ -132,6 +153,8 @@
             </ul>
         </div>
     </footer>
+
+    <a href="#top" class="scrollToTopBtn" title="Go to top">▲</a>
 
 </body>
 </html>

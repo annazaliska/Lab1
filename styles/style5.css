@@ -15,6 +15,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth; /* Плавний скролл */
 }
 
 body {
@@ -75,6 +76,73 @@ header nav a:hover, header div a:hover {
     opacity: 0.7;
 }
 
+/* --- ПУНКТ 1: Стилі для випадаючого меню (Absolute / Relative) --- */
+header nav ul li.dropdown {
+    position: relative;
+}
+
+header nav ul li.dropdown .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--header-color);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    list-style: none;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    z-index: 1100;
+}
+
+header nav ul li.dropdown:hover .submenu {
+    display: flex;
+}
+
+header nav ul li.dropdown .submenu li a {
+    padding: 0.5rem 1rem;
+    display: block;
+    font-size: 0.85rem;
+}
+
+header nav ul li.dropdown .submenu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- ПУНКТ 4: Стилі для елемента пошуку --- */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 0.2rem;
+    width: 130px;
+    font-family: var(--font-body);
+}
+
+.search-box input::placeholder {
+    color: #a3b8b0;
+}
+
+.search-box button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0;
+}
+
 header div:last-child a {
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 0.5rem 1.2rem;
@@ -130,6 +198,32 @@ main > section button {
 
 main > section button:hover {
     opacity: 0.9;
+}
+
+/* --- ПУНКТ 2: Стилі для фіксованої кнопки навігації вгору (лівий нижній куток) --- */
+.scrollToTopBtn {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: background-color var(--transition), transform var(--transition);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.scrollToTopBtn:hover {
+    background-color: #3f5d51;
+    transform: translateY(-3px);
 }
 
 footer {

@@ -3,28 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Shop - La Fleur Botanical Studio</title>
-        <link rel="stylesheet" href="styles/style1.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="styles/style1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
+    <header id="top">
         <div>
-    <a href="home.html">
-        <h1>La Fleur</h1>
-        <p>BOTANICAL STUDIO</p>
-    </a>
-</div>
+            <a href="home.html">
+                <h1>La Fleur</h1>
+                <p>BOTANICAL STUDIO</p>
+            </a>
+        </div>
         <nav>
             <ul>
-                <li><a href="shop.html">Shop</a></li>
+                <li class="dropdown">
+                    <a href="shop.html">Shop ▾</a>
+                    <ul class="submenu">
+                        <li><a href="shop.html">Bestsellers</a></li>
+                        <li><a href="shop.html">Seasonal</a></li>
+                        <li><a href="shop.html">New Arrivals</a></li>
+                    </ul>
+                </li>
                 <li><a href="occasions.html">Occasions</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
+        
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <button type="submit">🔍</button>
+        </div>
+
         <div>
             <a href="basket.html">Cart</a>
         </div>
@@ -167,6 +179,9 @@
             </ul>
         </div>
     </footer>
+
+    <!-- Пункт 2: Фіксована кнопка навігації вгору у лівому нижньому кутку -->
+    <a href="#top" class="scrollToTopBtn" title="Go to top">▲</a>
 
 </body>
 </html>
