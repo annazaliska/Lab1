@@ -1,0 +1,481 @@
+// --- Змінні Sass ---
+$primary-color: #22382e;
+$header-color: #1a2e25;
+$bg-color: #f7f4ee;
+$card-bg: #ffffff;
+$accent-peach: #e3b5a4;
+$text-main: #22382e;
+$text-muted: #666666;
+$font-heading: 'Playfair Display', serif;
+$font-body: 'Poppins', sans-serif;
+$transition: 0.3s ease;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-body;
+    background-color: $bg-color;
+    color: $text-main;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+// --- Шапка з вкладеністю Sass ---
+header {
+    background-color: $header-color;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    h1 {
+        font-family: $font-heading;
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+
+    p {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        color: #a3b8b0;
+        text-transform: uppercase;
+    }
+
+    nav {
+        ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+
+            li.dropdown {
+                position: relative;
+
+                .submenu {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: $header-color;
+                    min-width: 160px;
+                    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                    border-radius: 8px;
+                    list-style: none;
+                    flex-direction: column;
+                    padding: 0.5rem 0;
+                    z-index: 1100;
+
+                    li a {
+                        padding: 0.5rem 1rem;
+                        display: block;
+                        font-size: 0.85rem;
+
+                        &:hover {
+                            background-color: rgba(255, 255, 255, 0.1);
+                        }
+                    }
+                }
+
+                &:hover .submenu {
+                    display: flex;
+                }
+            }
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: opacity $transition;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+
+    input {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+        font-size: 0.9rem;
+        padding: 0.2rem;
+        width: 130px;
+        font-family: $font-body;
+
+        &::placeholder {
+            color: #a3b8b0;
+        }
+    }
+
+    button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+        padding: 0;
+    }
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 0.95rem;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 0.5rem 1.2rem;
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: opacity $transition;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    .sign-in-btn {
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+}
+
+// --- Основний контент кошика ---
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+
+    > section {
+        text-align: center;
+        max-width: 500px;
+        animation: fadeSlideUp 0.8s ease-out both;
+
+        > div:first-child {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-family: $font-heading;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: $text-muted;
+            margin-bottom: 2rem;
+        }
+
+        button {
+            background-color: $primary-color;
+            color: #ffffff;
+            border: none;
+            border-radius: 30px;
+            padding: 0.9rem 2.2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: $font-body;
+            transition: opacity $transition;
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+    }
+}
+
+// --- Кнопка вгору ---
+.scrollToTopBtn {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: $primary-color;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    transition: background-color $transition, transform $transition;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    &:hover {
+        background-color: #3f5d51;
+        transform: translateY(-3px);
+    }
+}
+
+// --- Підвал ---
+footer {
+    background-color: $primary-color;
+    color: #ffffff;
+    padding: 4rem;
+    text-align: center;
+
+    h3 {
+        font-family: $font-heading;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        color: #a3b8b0;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 2rem;
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity $transition;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+// --- Модальне вікно та CSS-валідація ---
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(26, 46, 37, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10000;
+
+    &:target {
+        opacity: 1;
+        visibility: visible;
+
+        .modal-box {
+            transform: translateY(0);
+        }
+    }
+}
+
+.modal-box {
+    background-color: $bg-color;
+    color: $text-main;
+    width: 90%;
+    max-width: 420px;
+    padding: 2.5rem;
+    border-radius: 16px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+
+    h2 {
+        font-family: $font-heading;
+        font-size: 1.8rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .modal-subtitle {
+        font-size: 0.85rem;
+        color: $text-muted;
+        margin-bottom: 1.5rem;
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1.3rem;
+        font-size: 1.8rem;
+        text-decoration: none;
+        color: $text-muted;
+        line-height: 1;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
+}
+
+.auth-form {
+    .input-group {
+        margin-bottom: 1.2rem;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+        }
+
+        input {
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            border: 1.5px solid #cfd8d4;
+            background-color: #ffffff;
+            font-family: $font-body;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+
+            &:not(:placeholder-shown):invalid {
+                border-color: #c0392b;
+
+                ~ .validation-hint {
+                    display: block;
+                }
+            }
+
+            &:not(:placeholder-shown):valid {
+                border-color: #2e7d32;
+            }
+        }
+    }
+
+    .validation-hint {
+        display: none;
+        font-size: 0.75rem;
+        color: #c0392b;
+        margin-top: 0.3rem;
+    }
+
+    .modal-submit {
+        width: 100%;
+        background-color: $primary-color;
+        color: #ffffff;
+        border: none;
+        border-radius: 30px;
+        padding: 0.8rem;
+        cursor: pointer;
+        margin-top: 0.5rem;
+
+        &:hover {
+            background-color: #334d42;
+        }
+    }
+}
+
+// --- Адаптивність ---
+.menu-toggle,
+.menu-icon {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    header { padding: 1.2rem 2rem; }
+    main { padding: 3rem 2rem; }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .menu-icon {
+        display: block;
+        font-size: 1.7rem;
+        cursor: pointer;
+        color: #ffffff;
+        order: 3;
+    }
+
+    .search-box { display: none; }
+
+    .main-nav {
+        display: none;
+        width: 100%;
+        order: 4;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        margin-top: 1rem;
+
+        ul {
+            flex-direction: column;
+            gap: 1rem;
+
+            li.dropdown .submenu {
+                position: static;
+                box-shadow: none;
+                padding-left: 1rem;
+                background: transparent;
+            }
+        }
+    }
+
+    .menu-toggle:checked ~ .main-nav {
+        display: block;
+    }
+
+    .header-actions { order: 2; }
+
+    .sign-in-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 1.5rem;
+        background-color: $header-color !important;
+        color: #ffffff;
+        border: 2px solid $accent-peach !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+        z-index: 9999;
+        padding: 0.65rem 1.3rem !important;
+        font-weight: 500;
+    }
+
+    main { padding: 2rem 1.5rem; }
+}

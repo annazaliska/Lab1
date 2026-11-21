@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Fleur - Botanical Studio</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +16,12 @@
             <h1>La Fleur</h1>
             <p>BOTANICAL STUDIO</p>
         </div>
-        <nav>
+
+        <!-- Пункт 4: Адаптивне меню (чекбокс та спецсимвол) -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon" aria-label="Toggle Menu">☰</label>
+
+        <nav class="main-nav">
             <ul>
                 <li class="dropdown">
                     <a href="shop.html">Shop ▾</a>
@@ -30,14 +36,15 @@
             </ul>
         </nav>
         
-        <!-- Пункт 4: Елемент пошуку -->
         <div class="search-box">
             <input type="text" placeholder="Search...">
             <button type="submit">🔍</button>
         </div>
 
-        <div>
-            <a href="basket.html">Cart</a>
+        <!-- Пункт 2 і 3: Кнопка Sign in (нерухома на малих екранах) + Кошик -->
+        <div class="header-actions">
+            <a href="#signin-modal" class="sign-in-btn">Sign in</a>
+            <a href="basket.html" class="cart-btn">Cart</a>
         </div>
     </header>
 
@@ -128,16 +135,40 @@
             </div>
         </section>
 
-        <!-- Пункт 3: Ефект зображення з текстом по середині -->
+        <!-- Виправлена секція з банером (без накладання тексту) -->
         <section class="image-overlay-section">
             <img src="img/img6.jpg" alt="Flower shop interior" width="800" height="400">
             <div class="overlay-content">
                 <h2>HOME DECORATION</h2>
                 <p>Discover our exclusive interior botanical selections</p>
+                <div class="bottom-action">
+                    <h2>Find the perfect arrangement</h2>
+                    <a href="occasions.html"><button>Shop by Occasion</button></a>
+                </div>
             </div>
-            <div class="bottom-action">
-                <h2>Find the perfect arrangement</h2>
-                <a href="occasions.html"><button>Shop by Occasion</button></a>
+        </section>
+
+        <!-- Пункт 6: Секція зворотного зв’язку з відгуками користувачів у вигляді каруселі -->
+        <section class="testimonials-section">
+            <h2>What Our Clients Say</h2>
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <div class="testimonial-card">
+                        <p class="quote">"The Red Roses arrived looking like they were cut minutes ago. The fragrance filled our entire living room for over a week!"</p>
+                        <h4>— Clara Moreau</h4>
+                        <span>Verified Buyer</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="quote">"La Fleur's seasonal bouquets never disappoint. Their attention to detail and eco-friendly packaging make every gift special."</p>
+                        <h4>— Julian Vance</h4>
+                        <span>Regular Subscriber</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="quote">"Ordered the Pink Tulips for my mother's birthday. Same-day delivery was right on time and the arrangement was breathtaking."</p>
+                        <h4>— Elena Rostova</h4>
+                        <span>Verified Buyer</span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -154,7 +185,33 @@
         </div>
     </footer>
 
+    <!-- Пункт 5: Кнопка вгору із плавним переходом -->
     <a href="#top" class="scrollToTopBtn" title="Go to top">▲</a>
+
+    <!-- Пункт 3 та Додаткове завдання 1*: Модальне вікно автентифікації з CSS-валідацією без JS -->
+    <div id="signin-modal" class="modal-backdrop">
+        <div class="modal-box">
+            <a href="#top" class="modal-close" title="Close">&times;</a>
+            <h2>Welcome Back</h2>
+            <p class="modal-subtitle">Sign in to manage your botanical orders</p>
+            
+            <form class="auth-form" action="#top">
+                <div class="input-group">
+                    <label for="user-email">Email Address</label>
+                    <input type="email" id="user-email" placeholder="you@example.com" required>
+                    <span class="validation-hint">Введіть коректну електронну адресу (наприклад, name@mail.com)</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="user-pass">Password</label>
+                    <input type="password" id="user-pass" placeholder="Minimum 6 characters" minlength="6" required>
+                    <span class="validation-hint">Пароль повинен містити щонайменше 6 символів</span>
+                </div>
+
+                <button type="submit" class="modal-submit">Sign In</button>
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>

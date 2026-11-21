@@ -114,7 +114,7 @@ header nav ul li.dropdown .submenu li a:hover {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 0.3rem 0.8rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
 }
 
 .search-box input {
@@ -140,13 +140,23 @@ header nav ul li.dropdown .submenu li a:hover {
     padding: 0;
 }
 
-header div:last-child a {
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.header-actions a {
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 0.5rem 1.2rem;
     border-radius: 20px;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.sign-in-btn {
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 /* Заголовок сторінки Occasions */
@@ -186,6 +196,12 @@ main > section:nth-of-type(2) > div {
     justify-content: space-between;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     position: relative;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+main > section:nth-of-type(2) > div:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(34, 56, 46, 0.08);
 }
 
 /* Зображення */
@@ -196,6 +212,11 @@ main > section:nth-of-type(2) > div > img {
     border-radius: 8px;
     margin-bottom: 1rem;
     filter: brightness(0.9);
+    transition: transform 0.5s ease;
+}
+
+main > section:nth-of-type(2) > div:hover img {
+    transform: scale(1.02);
 }
 
 main > section:nth-of-type(2) h3 {
@@ -323,4 +344,170 @@ footer ul a {
 
 footer ul a:hover {
     opacity: 0.7;
+}
+
+/* --- Анімації --- */
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+main > section {
+    animation: fadeSlideUp 0.8s ease-out both;
+}
+
+/* --- Модальне вікно та валідація без JS --- */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(26, 46, 37, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10000;
+}
+
+.modal-backdrop:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    width: 90%;
+    max-width: 420px;
+    padding: 2.5rem;
+    border-radius: 16px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-backdrop:target .modal-box {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.3rem;
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: var(--text-muted);
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--primary-color);
+}
+
+.modal-box h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.modal-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.auth-form .input-group {
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+}
+
+.auth-form input {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1.5px solid #cfd8d4;
+    background-color: #ffffff;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.auth-form input:not(:placeholder-shown):invalid {
+    border-color: #c0392b;
+}
+
+.auth-form input:not(:placeholder-shown):valid {
+    border-color: #2e7d32;
+}
+
+.validation-hint {
+    display: none;
+    font-size: 0.75rem;
+    color: #c0392b;
+    margin-top: 0.3rem;
+}
+
+.auth-form input:not(:placeholder-shown):invalid ~ .validation-hint {
+    display: block;
+}
+
+.modal-submit {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    margin-top: 0.5rem;
+}
+
+.modal-submit:hover {
+    background-color: #334d42;
+}
+
+/* --- Адаптивність (Медіа-запити) --- */
+.menu-toggle,
+.menu-icon {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    header { padding: 1.2rem 2rem; }
+    main > section:first-of-type { padding: 3rem 2rem 1.5rem 2rem; }
+    main > section:nth-of-type(2) { padding: 0 2rem 4rem 2rem; grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    header { padding: 1rem 1.5rem; flex-wrap: wrap; }
+    .menu-icon { display: block; font-size: 1.7rem; cursor: pointer; color: #ffffff; order: 3; }
+    .search-box { display: none; }
+    .main-nav { display: none; width: 100%; order: 4; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.15); margin-top: 1rem; }
+    .menu-toggle:checked ~ .main-nav { display: block; }
+    .main-nav ul { flex-direction: column; gap: 1rem; }
+    header nav ul li.dropdown .submenu { position: static; box-shadow: none; padding-left: 1rem; background: transparent; }
+    .header-actions { order: 2; }
+    
+    /* Нерухома кнопка Sign in на мобільних */
+    .sign-in-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 1.5rem;
+        background-color: var(--header-color) !important;
+        color: #ffffff;
+        border: 2px solid var(--accent-peach) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+        z-index: 9999;
+        padding: 0.65rem 1.3rem !important;
+        font-weight: 500;
+    }
+
+    main > section:first-of-type { padding: 2.5rem 1.5rem 1rem 1.5rem; }
+    main > section:first-of-type h2 { font-size: 2.2rem; }
+    main > section:nth-of-type(2) { padding: 0 1.5rem 4rem 1.5rem; grid-template-columns: 1fr; }
 }

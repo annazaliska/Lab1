@@ -1,264 +1,433 @@
-:root {
-    --primary-color: #22382e;
-    --header-color: #1a2e25;
-    --bg-color: #f7f4ee;
-    --card-bg: #ffffff;
-    --accent-peach: #e3b5a4;
-    --text-main: #22382e;
-    --text-muted: #666666;
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Poppins', sans-serif;
-    --transition: 0.3s ease;
-}
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth; /* Плавний скролл */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: var(--font-body);
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    line-height: 1.5;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-color: #f7f4ee;
+  color: #22382e;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
-    background-color: var(--header-color);
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 4rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  background-color: #1a2e25;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-
 header a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
-
 header h1 {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    font-weight: 700;
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
-
 header p {
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    color: #a3b8b0;
-    text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: #a3b8b0;
+  text-transform: uppercase;
 }
-
 header nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2.5rem;
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
 }
-
-header nav a, header div a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 400;
-    transition: opacity var(--transition);
-}
-
-header nav a:hover, header div a:hover {
-    opacity: 0.7;
-}
-
-/* --- ПУНКТ 1: Стилі для випадаючого меню (Absolute / Relative) --- */
 header nav ul li.dropdown {
-    position: relative;
+  position: relative;
 }
-
 header nav ul li.dropdown .submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--header-color);
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    border-radius: 8px;
-    list-style: none;
-    flex-direction: column;
-    padding: 0.5rem 0;
-    z-index: 1100;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1a2e25;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  list-style: none;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  z-index: 1100;
 }
-
-header nav ul li.dropdown:hover .submenu {
-    display: flex;
-}
-
 header nav ul li.dropdown .submenu li a {
-    padding: 0.5rem 1rem;
-    display: block;
-    font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  display: block;
+  font-size: 0.85rem;
 }
-
 header nav ul li.dropdown .submenu li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+header nav ul li.dropdown:hover .submenu {
+  display: flex;
+}
+header nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+}
+header nav a:hover {
+  opacity: 0.7;
 }
 
-/* --- ПУНКТ 4: Стилі для елемента пошуку --- */
 .search-box {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 0.3rem 0.8rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
 }
-
 .search-box input {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #fff;
-    font-size: 0.9rem;
-    padding: 0.2rem;
-    width: 130px;
-    font-family: var(--font-body);
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 0.2rem;
+  width: 130px;
+  font-family: "Poppins", sans-serif;
 }
-
+.search-box input::-moz-placeholder {
+  color: #a3b8b0;
+}
 .search-box input::placeholder {
-    color: #a3b8b0;
+  color: #a3b8b0;
 }
-
 .search-box button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem;
-    padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
 }
 
-header div:last-child a {
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 0.5rem 1.2rem;
-    border-radius: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.header-actions a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+.header-actions a:hover {
+  opacity: 0.7;
+}
+.header-actions .sign-in-btn {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4rem;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
 }
-
 main > section {
-    text-align: center;
-    max-width: 500px;
+  text-align: center;
+  max-width: 500px;
+  animation: fadeSlideUp 0.8s ease-out both;
 }
-
 main > section > div:first-child {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
 }
-
 main > section h2 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 0.8rem;
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
 }
-
 main > section p {
-    font-size: 1rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #666666;
+  margin-bottom: 2rem;
 }
-
 main > section button {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border: none;
-    border-radius: 30px;
-    padding: 0.9rem 2.2rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    cursor: pointer;
-    font-family: var(--font-body);
-    transition: opacity var(--transition);
+  background-color: #22382e;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.9rem 2.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  transition: opacity 0.3s ease;
 }
-
 main > section button:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
-/* --- ПУНКТ 2: Стилі для фіксованої кнопки навігації вгору (лівий нижній куток) --- */
 .scrollToTopBtn {
-    position: fixed;
-    bottom: 2rem;
-    left: 2rem;
-    background-color: var(--primary-color);
-    color: white;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    z-index: 9999;
-    transition: background-color var(--transition), transform var(--transition);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  background-color: #22382e;
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
-
 .scrollToTopBtn:hover {
-    background-color: #3f5d51;
-    transform: translateY(-3px);
+  background-color: #3f5d51;
+  transform: translateY(-3px);
 }
 
 footer {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    padding: 4rem;
-    text-align: center;
+  background-color: #22382e;
+  color: #ffffff;
+  padding: 4rem;
+  text-align: center;
 }
-
 footer h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
-
 footer p {
-    color: #a3b8b0;
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
+  color: #a3b8b0;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
 }
-
 footer ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 2rem;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2rem;
 }
-
 footer ul a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: opacity var(--transition);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: opacity 0.3s ease;
+}
+footer ul a:hover {
+  opacity: 0.7;
 }
 
-footer ul a:hover {
-    opacity: 0.7;
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(26, 46, 37, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10000;
 }
+.modal-backdrop:target {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-backdrop:target .modal-box {
+  transform: translateY(0);
+}
+
+.modal-box {
+  background-color: #f7f4ee;
+  color: #22382e;
+  width: 90%;
+  max-width: 420px;
+  padding: 2.5rem;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+.modal-box h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+.modal-box .modal-subtitle {
+  font-size: 0.85rem;
+  color: #666666;
+  margin-bottom: 1.5rem;
+}
+.modal-box .modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.3rem;
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: #666666;
+  line-height: 1;
+}
+.modal-box .modal-close:hover {
+  color: #22382e;
+}
+
+.auth-form .input-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+.auth-form .input-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+.auth-form .input-group input {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1.5px solid #cfd8d4;
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.auth-form .input-group input:not(:-moz-placeholder):invalid {
+  border-color: #c0392b;
+}
+.auth-form .input-group input:not(:placeholder-shown):invalid {
+  border-color: #c0392b;
+}
+.auth-form .input-group input:not(:-moz-placeholder):invalid ~ .validation-hint {
+  display: block;
+}
+.auth-form .input-group input:not(:placeholder-shown):invalid ~ .validation-hint {
+  display: block;
+}
+.auth-form .input-group input:not(:-moz-placeholder):valid {
+  border-color: #2e7d32;
+}
+.auth-form .input-group input:not(:placeholder-shown):valid {
+  border-color: #2e7d32;
+}
+.auth-form .validation-hint {
+  display: none;
+  font-size: 0.75rem;
+  color: #c0392b;
+  margin-top: 0.3rem;
+}
+.auth-form .modal-submit {
+  width: 100%;
+  background-color: #22382e;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.8rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.auth-form .modal-submit:hover {
+  background-color: #334d42;
+}
+
+.menu-toggle,
+.menu-icon {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  header {
+    padding: 1.2rem 2rem;
+  }
+  main {
+    padding: 3rem 2rem;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap;
+  }
+  .menu-icon {
+    display: block;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: #ffffff;
+    order: 3;
+  }
+  .search-box {
+    display: none;
+  }
+  .main-nav {
+    display: none;
+    width: 100%;
+    order: 4;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 1rem;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .main-nav ul li.dropdown .submenu {
+    position: static;
+    box-shadow: none;
+    padding-left: 1rem;
+    background: transparent;
+  }
+  .menu-toggle:checked ~ .main-nav {
+    display: block;
+  }
+  .header-actions {
+    order: 2;
+  }
+  .sign-in-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 1.5rem;
+    background-color: #1a2e25 !important;
+    color: #ffffff;
+    border: 2px solid #e3b5a4 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+    z-index: 9999;
+    padding: 0.65rem 1.3rem !important;
+    font-weight: 500;
+  }
+  main {
+    padding: 2rem 1.5rem;
+  }
+}/*# sourceMappingURL=style5.css.map */

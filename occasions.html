@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Occasions - La Fleur Botanical Studio</title>
     <link rel="stylesheet" href="styles/style3.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +19,12 @@
                 <p>BOTANICAL STUDIO</p>
             </a>
         </div>
-        <nav>
+
+        <!-- Адаптивне меню (чекбокс та бургер-іконка) -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon" aria-label="Toggle Menu">☰</label>
+
+        <nav class="main-nav">
             <ul>
                 <!-- Пункт 1: Випадаюче меню із відносним позиціюванням -->
                 <li class="dropdown">
@@ -40,8 +46,10 @@
             <button type="submit">🔍</button>
         </div>
 
-        <div>
-            <a href="basket.html">Cart</a>
+        <!-- Кнопка Sign in (на малих екранах стає нерухомою) + Кошик -->
+        <div class="header-actions">
+            <a href="#signin-modal" class="sign-in-btn">Sign in</a>
+            <a href="basket.html" class="cart-btn">Cart</a>
         </div>
     </header>
 
@@ -150,7 +158,33 @@
         </div>
     </footer>
 
+    <!-- Пункт 2: Фіксована кнопка навігації вгору у лівому нижньому кутку -->
     <a href="#top" class="scrollToTopBtn" title="Go to top">▲</a>
+
+    <!-- Модальне вікно Sign In із валідацією без JS -->
+    <div id="signin-modal" class="modal-backdrop">
+        <div class="modal-box">
+            <a href="#top" class="modal-close" title="Close">&times;</a>
+            <h2>Welcome Back</h2>
+            <p class="modal-subtitle">Sign in to manage your botanical orders</p>
+            
+            <form class="auth-form" action="#top">
+                <div class="input-group">
+                    <label for="user-email">Email Address</label>
+                    <input type="email" id="user-email" placeholder="you@example.com" required>
+                    <span class="validation-hint">Введіть коректну електронну адресу (наприклад, name@mail.com)</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="user-pass">Password</label>
+                    <input type="password" id="user-pass" placeholder="Minimum 6 characters" minlength="6" required>
+                    <span class="validation-hint">Пароль повинен містити щонайменше 6 символів</span>
+                </div>
+
+                <button type="submit" class="modal-submit">Sign In</button>
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>
